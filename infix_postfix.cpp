@@ -114,3 +114,28 @@ string postfix(string input){
 				}
 				stck.push(input[i]);
 			}
+		}
+		if(isOperator(input[i]))
+			P += " ";
+		i++;
+	}
+	while(!stck.isEmpty()){
+		P = P + " " + stck.Top(); stck.pop();
+	}
+	return P;
+}
+int main(){
+	
+	cout<<"********************************************************\n";
+	cout<<"\t\tKONVERSI INFIX TO POSTFIX\n";
+	cout<<"********************************************************\n";
+	cout<<"https://github.com/ratihindah1006/infix-postfix\n\n";
+	string in;
+	cout<<" masukkan infix =  ";
+	getline(cin,in);
+	string Post = postfix(in);
+	cout<<"\n postfix\t =  "<< Post;
+	
+	return 0;
+}
+
