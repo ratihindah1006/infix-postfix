@@ -71,6 +71,23 @@ bool banding(char input1, char input2){
 	else
 		return false;
 }
+
+bool isOperand(char input){
+	int c = (int)input;
+	if(c >= 48 && c <= 57 || c >= 65 && c <= 90 || c >= 97 && c <= 122)
+		return true;
+	else
+		return false;
+}
+
+bool isOperator(char input){
+	int c = (int)input;
+	if(c == 94 || c >= 42 && c <= 43 || c == 45 || c == 47)
+		return true;
+	else
+		return false;
+}
+
 string postfix(string input){
 	stck.init();
 	int i=0;
