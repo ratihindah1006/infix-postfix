@@ -42,3 +42,32 @@ public:
 			return false;
 	}
 }; convert stck;
+
+int oprt(char input){
+	if(input == '^')
+		return 1;
+	else if(input == '*' || input == '/')
+		return 2;
+	else if(input == '+' || input == '-')
+		return 3;
+	else if(input == '(' || input == ')')
+		return 0;
+	else
+		return -1;
+}
+
+bool isOperand(char input);
+bool isOperator(char input);
+int oprt(char input);
+bool banding(char input1, char input2);
+string postfix(string input);
+
+bool banding(char input1, char input2){
+	int c1 = oprt(input1);
+	int c2 = oprt(input2);
+
+	if(c1 <= c2)
+		return true;
+	else
+		return false;
+}
