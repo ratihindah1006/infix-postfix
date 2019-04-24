@@ -71,3 +71,29 @@ bool banding(char input1, char input2){
 	else
 		return false;
 }
+string postfix(string input){
+	stck.init();
+	int i=0;
+	string P = "";
+	while(input[i] != '\0'){
+		if(isOperand(input[i])){
+			P += input[i];
+		}
+		if(input[i] == '('){
+			stck.push(input[i]);
+		}
+		if(input[i] == ')'){
+			while(!stck.isEmpty() && stck.Top() != '('){
+				P = P + " " + stck.Top(); stck.pop();
+			}
+			stck.pop();
+		}
+		if(isOperator(input[i])){
+			if(stck.isEmpty() || stck.Top() == '('){
+				stck.push(input[i]);
+			}else{
+				while(!stck.isEmpty() && stck.Top() != '(' && banding(input[i], stck.Top())){
+					P = P + " " + stck.Top(); stck.pop();
+				}
+				stck.push(input[i]);
+			}
